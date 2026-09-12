@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Compartidor de Archivos</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>📁 Compartidor de Archivos</h1>
+            <p>Sube archivos y comparte su contenido fácilmente</p>
+        </div>
+
+        <div class="content">
+            <!-- Sección de Administrador -->
+            <div class="admin-section">
+                <h2>👨‍💼 Administrador</h2>
+                <div class="upload-area" id="uploadArea">
+                    <svg class="upload-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                        <polyline points="17 8 12 3 7 8"></polyline>
+                        <line x1="12" y1="3" x2="12" y2="15"></line>
+                    </svg>
+                    <p>Arrastra archivos aquí o haz clic para seleccionar</p>
+                    <input type="file" id="fileInput" multiple hidden>
+                </div>
+                
+                <div class="admin-files">
+                    <h3>Archivos Cargados:</h3>
+                    <div id="adminFilesList" class="files-list">
+                        <p class="empty-message">Sin archivos aún</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sección de Usuario -->
+            <div class="user-section">
+                <h2>👥 Descargar Archivos</h2>
+                <div id="userFilesList" class="files-list">
+                    <p class="empty-message">Sin archivos disponibles</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal para ver/copiar contenido -->
+    <div id="contentModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="modalFileName"></h3>
+                <button class="close-modal" id="closeModal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <pre id="fileContent"></pre>
+            </div>
+            <div class="modal-footer">
+                <button id="copyBtn" class="btn btn-primary">📋 Copiar Contenido</button>
+                <button id="downloadBtn" class="btn btn-secondary">📥 Descargar</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
